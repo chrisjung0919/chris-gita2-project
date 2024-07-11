@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Aatrox</title>
+<style>
+body{
+background:black;
+}
+h1{
+font-size: 65px;
+color: red;
+text-align: center;
+font-family: 'Yellowtail', cursive;
+}
+h2{
+font-size: 35px;
+color: orange;
+text-align: left;
+font-family: 'Yellowtail', cursive;
+}
+.section1{
+width: 70%;
+border: 5px solid white;
+margin: auto;
+}
+.section2{
+width: 70%;
+border: 5px solid white;
+margin: auto;
+}
+p{
+color: white;
+font-size: 20px;
+}
+#image{
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 70%;
+}
+li{
+color: white;
+font-size: 20px;
+font-family: 'Blaka Hollow', cursive;
+}
+table, th, td {
+border: 1px solid white;
+}
+table{
+border-collapse: collapse;
+margin-left: auto;
+margin-right: auto;
+width: 90%;
+margin-bottom: 30px;
+}
+th{
+background-color: red;
+text-align: center;
+padding: 30px;
+}
+td{
+color: white;
+text-align: center;
+}
+td img{
+padding: 20px;
+max-width: 100%
+}
+tr:nth-child(even) {background-color: orange;}
+tr:hover {background-color: ECD33A;}
+</style>
+ <link href="css/style.css" rel="stylesheet">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Blaka+Hollow&family=Yellowtail&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Aatrox</h1>
+<div class="section1">
+<h2>About Aatrox</h2>
+</br>
+<img src="aatrox.jpg" id="image">
+</br>
+<center>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s8p_brCVNOA">
+</iframe>
+</center>
+<p>Once honored defenders of Shurima against the Void, Aatrox and his brethren would eventually become 
+an even greater threat to Runeterra, and were defeated only by cunning mortal sorcery. But 
+after centuries of imprisonment, Aatrox was the first to find freedom once more, corrupting and 
+transforming those foolish enough to try and wield the magical weapon that contained his essence. Now, with 
+stolen flesh, he walks Runeterra in a brutal approximation of 
+his previous form, seeking an apocalyptic and long overdue vengeance.</p>
+<p>Aatrox was born and raised in Shurima Crest icon.png Shurima at the height of its power. He eventually 
+became a champion of Shurima, being honored for his service to the Empire.</p>
+</br>
+<table border="1">
+<tr>
+    <th>Skills</th>
+    <th>Description</th>
+	<th>Range</th>
+	<th>Cooldown</th>
+</tr>
+<tr>
+    <td><img src="q.png">Q</td>
+    <td>Aatrox slams his greatsword down, dealing physical damage.</td>
+	<td>25000</td>
+    <td>14</td>
+</tr>
+<tr>
+    <td><img src="w.png">W</td>
+    <td>Champions and large monsters have to leave the impact area quickly or they will be dragged to the center and take the damage again.</td>
+	<td>825</td>
+    <td>20</td>
+</tr>
+<tr>
+    <td><img src="e.png">E</td>
+    <td>Passively, Aatrox heals when damaging enemy champions. On activation, he dashes in a direction.</td>
+	<td>25000</td>
+    <td>9</td>
+</tr>
+<tr>
+    <td><img src="r.png">R</td>
+    <td>Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and Move Speed.</td>
+	<td>25000</td>
+    <td>120</td>
+</tr>
+</table>
+</br>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3k6tyY4oVAQaAybTodYK5Q?utm_source=generator&theme=0" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+</br>
+</br>
+</br>
+<div class="section2">
+<h2>Why I like Aatrox</h2>
+<ul>
+<li>Aatrox is a lane bully who can snowball quite quickly. If you can get an early lead, try to abuse it to get more kills in the lane to increase your chances of winning the game.</li>
+<li>You’re a very mobile champion thanks to your Umbral Dash
+E. It can be used in multiple ways and is a good way of turning around exchanges with the enemy.</li>
+<li>You have tons of sustain thanks to your Passive and Ultimate World Ender
+R. This will increase your survivability in team fights and skirmishes.</li>
+</ul>
+<center>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Happy birthday to the only champion allowing me to continue playing league of legends. Easily the most well designed champion visually, canonically, aesthetically, and gameplay. <br><br>To show my appreciation: <a href="https://t.co/iEGNpFC1GH">https://t.co/iEGNpFC1GH</a><a href="https://twitter.com/hashtag/Aatrox?src=hash&amp;ref_src=twsrc%5Etfw">#Aatrox</a> <a href="https://twitter.com/hashtag/darkinblade?src=hash&amp;ref_src=twsrc%5Etfw">#darkinblade</a> <a href="https://t.co/BuzVLFsJGl">https://t.co/BuzVLFsJGl</a></p>&mdash; Ayden Pires (@CAAFIEND) <a href="https://twitter.com/CAAFIEND/status/1536408801733029888?ref_src=twsrc%5Etfw">June 13, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Birthday: Aatrox<br><br>A day like today June 13, 9 years ago in 2013, Aatrox, The Darkin Blade was Released <a href="https://t.co/DF5AMr1wqs">pic.twitter.com/DF5AMr1wqs</a></p>&mdash; Jumaralo Hex (@JumaraloHexCore) <a href="https://twitter.com/JumaraloHexCore/status/1536313149737119746?ref_src=twsrc%5Etfw">June 13, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center
+</div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Form</title>
+<style>
+#container{
+width: 480px;
+border: 1px solid black;
+padding: 20px;
+margin-left: auto;
+margin-right: auto;
+background-color: yellow;
+}
+#container h1{
+margin-top: 0;
+}
+h1{
+color: red;
+}
+#t1{
+color: green;
+font-size: 20px;
+}
+#t2{
+color: brown;
+font-size: 20px;
+}
+#t3{
+color: green;
+font-size: 20px;
+}
+#t4{
+color: brown;
+font-size: 20px;
+}
+#t5{
+color: green;
+font-size: 20px;
+}
+#pizza{
+width: 25%;
+float: right;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<h1>Pizza Order Form</h1>
+	<img id="pizza" src="pizza.jpg">
+	<form>
+		<label id="t1" for="name-input">Name</label>
+		<input id="name-input" type="text" placeholder="Christopher Jung"/>
+		</br>
+		</br>
+		</br>
+		<label id="t2">Choose Your Order</label>
+		<input type="radio" id="plain" name="pizza"/>
+		<label for ="plain">Plain</label>
+		<input type="radio" id="cheese" name="pizza"/>
+		<label for ="cheese">Cheese</label>
+		<input type="radio" id="pepperoni" name="pizza"/>
+		<label for ="pepperoni">Pepperoni</label>
+		<input type="radio" id="seafood" name="pizza"/>
+		<label for ="seafood">Seafood</label>
+		</br>
+		</br>
+		</br>
+		<label id="t3">Choose your toppings</label>
+		<label>
+		<input type="checkbox"/>
+		Mushrooms
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Black Olives
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Onions
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Green Peppers
+		</label>
+		</br>
+		</br>
+		</br>
+		<label id="t4" for="pickup-location">Pickup Location</label>
+		<select id="pickup-location">
+		<option>Anaheim</option>
+		<option>Beverly Hills</option>
+		<option>Fullerton</option>
+		<option>Brea</option>
+		</select>
+		</br>
+		</br>
+		</br>
+		<input type="date" id="date" name="data">
+		<button type="submitdate">Submit</button>
+		</br>
+		</br>
+		</br>
+		<label id="t5" for="comments">Additional information</label>
+		<textarea id="comments"></textarea>
+		</br>
+		</br>
+		</br>
+		<button type="submit">Submit</button>
+		<button type="reset">Reset</button>
+	</form>
+</div>
+</body>
+</html>

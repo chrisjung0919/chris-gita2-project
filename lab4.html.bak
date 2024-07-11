@@ -1,0 +1,128 @@
+<html>
+<head>
+<title>Form</title>
+<style>
+#container{
+width: 800px;
+border: 1px solid black;
+padding: 20px;
+margin-left: auto;
+margin-right: auto;
+background-color: #E78E1C;
+}
+#container h1{
+margin-top: 0;
+}
+h1{
+color: white;
+text-align: center;
+}
+#t1{
+color: green;
+font-size: 20px;
+}
+#t2{
+color: brown;
+font-size: 20px;
+}
+#t3{
+color: green;
+font-size: 20px;
+}
+#t4{
+color: brown;
+font-size: 20px;
+}
+#t5{
+color: green;
+font-size: 20px;
+}
+#pizza{
+width: 20%;
+float: right;
+}
+input{
+border: 5px solid black;
+}
+textarea{
+border: 5px solid black;
+}
+img{
+border: 5px solid black;
+}
+form{
+background-color: yellow;
+border-radius: 10px;
+padding: 20px;
+border: 1px solid black;
+}
+.form-row{
+text-align: left;
+padding: 5px;
+margin-left: auto;
+margin-right: auto;
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<h1>Pizza Order Form</h1>
+	<img id="pizza" src="pizza.jpg">
+	<form action="thankyou.html" method ="">
+	<div class="form-row">
+		<label id="t1" for="name-input">Name</label>
+		<input id="name-input" type="text" placeholder="Christopher Jung"/>
+	</div>
+	<div class="form-row">
+		<label id="t2">Choose Your Order</label>
+		<input type="radio" id="plain" name="pizza"/>
+		<label for ="plain">Plain</label>
+		<input type="radio" id="cheese" name="pizza"/>
+		<label for ="cheese">Cheese</label>
+		<input type="radio" id="pepperoni" name="pizza"/>
+		<label for ="pepperoni">Pepperoni</label>
+		<input type="radio" id="seafood" name="pizza"/>
+		<label for ="seafood">Seafood</label>
+	</div>
+	<div class="form-row">
+		<label id="t3">Choose your toppings</label>
+		<label>
+		<input type="checkbox"/>
+		Mushrooms
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Black Olives
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Onions
+		</label>
+		<label>
+		<input type="checkbox"/>
+		Green Peppers
+		</label>
+	</div>
+	<div class="form-row">
+		<label id="t4" for="pickup-location">Pickup Location</label>
+		<select id="pickup-location">
+		<option>Anaheim</option>
+		<option>Beverly Hills</option>
+		<option>Fullerton</option>
+		<option>Brea</option>
+		</select>
+	</div>
+	<div class="form-row">
+		<input type="date" id="date" name="data">
+		<button type="submitdate">Submit</button>
+	</div>
+	<div class="form-row">
+		<label id="t5" for="comments">Additional information</label>
+		<textarea id="comments"></textarea>
+	</div>
+		<button type="submit">Submit</button>
+		<button type="reset">Reset</button>
+	</form>
+</div>
+</body>
+</html>
