@@ -1,0 +1,314 @@
+<html>
+<head>
+<title>Mini Space Invaders</title>
+<style type="text/css">
+h1{
+font-family:Comic Sans MS;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: #75C0FE;
+}
+#alien{
+display: none;
+}
+#spaceship{
+display: none;
+}
+#redalien{
+display: none;
+}
+#espaceship{
+display: none;
+}
+#spaceshipright{
+display: none;
+}
+#spaceshipleft{
+display: none;
+}
+#spaceshipdown{
+display: none;
+}
+</style>
+<script language="javascript">
+	var shoot = 0 * 1;
+	var onOff = 0 * 1;
+	var onOffBullet = 0 * 1;
+	var sx = 380*1;
+	var sy = 630*1;
+	var x = 380*1;
+	var y = 380*1;
+	var enemy = new Array();
+	var enemyx = Math.floor(Math.random()*450)*1;
+	var enemyy = Math.floor(Math.random()*70)*1;
+	var emovex = 10 * 1;
+	var emovey = 10 * 1;
+	var dx = 10 * 1;
+	var dy = 10 * 1;
+	var moveX = 5 * 1;
+	var moveY = 1 * 1;
+	var playerhp = 50 * 1;
+	//var enemyhp = 3 * 1;
+	var xCoord = x + 24;
+	var yCoord = y + 250;
+	var shootbullet = 20 * 1;
+	var spaceship = new Image();
+	var changeimg = 3 * 1;
+	var seconds = 0 * 1;
+function enemyInfo(x,y,velx,vely,color,size,enemyhp)
+{
+this.x = x;
+this.y = y;
+this.velx = velx;
+this.color = color;
+this.size = 20;
+this.enemyhp = 3;
+}
+for(var i=0; i<15;i++)
+{
+	var enemyx = Math.floor(Math.random()*450)*1;
+	var enemyy = Math.floor(Math.random()*70)*1;
+	var xspeed = 5;
+	var yspeed = 10;
+	enemy[i] = new enemyInfo(enemyx,enemyy,xspeed,yspeed);
+}
+	function drawInvader()
+	{
+		//paint to the canvas
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle="#000000";
+		ctx.fillRect(0,0,800,700);
+
+		spaceship.src = "spaceship.png";
+		ctx.drawImage(spaceship,sx,sy,50,50);
+		for(var j=0;j<enemy.length;j++)
+		{
+		enemy[j].src = document.getElementById("espaceship").src;
+		ctx.drawImage(espaceship,enemy[j].x,enemy[j].y,100,70);
+		}
+		
+		ctx.fillStyle="#36FF00";
+		ctx.beginPath();
+		ctx.arc(xCoord,yCoord,7,0,Math.PI*2,true);
+		ctx.closePath();
+		ctx.fill();
+		
+		if(changeimg == 0)
+		{
+		spaceship.src = document.getElementById("spaceshipleft").src;
+		ctx.drawImage(spaceship,sx,sy,50,50);
+		}
+		if(changeimg == 1)
+		{
+		spaceship.src = document.getElementById("spaceshipright").src;
+		ctx.drawImage(spaceship,sx,sy,50,50);
+		}
+		if(changeimg == 2)
+		{
+		spaceship.src = document.getElementById("spaceshipdown").src;
+		ctx.drawImage(spaceship,sx,sy,50,50);
+		}
+		if(changeimg == 3)
+		{
+		spaceship.src = document.getElementById("spaceship").src;
+		ctx.drawImage(spaceship,sx,sy,50,50);
+		}
+	}
+	function init(){
+	window.addEventListener('keydown',doKeyDown,true);
+	drawInvader();
+	}
+	function doKeyDown(evt)
+	{
+		switch(evt.which)
+		{
+			case 37:
+			sx -= dx;
+			if(shoot == 0){
+			xCoord = sx + 24;
+			}
+			changeimg = 0;
+			break;
+			
+			case 39:
+			sx += dx;
+			if(shoot == 0){
+			xCoord = sx + 24;
+			}
+			changeimg = 1;
+			break;
+			
+			case 32:
+			bulletTimer();
+			shoot = 1;
+			break;
+			
+			case 40:
+			sy += dy;
+			if(shoot == 0){
+			yCoord = sy + 20;
+			}
+			changeimg = 2;
+			break;
+			
+			case 38:
+			sy -= dy;
+			if(shoot == 0){
+			yCoord = sy + 20;
+			}
+			changeimg = 3;
+			break;
+		}
+		drawInvader();
+	}
+	function Move()
+	{
+	for(var m=0;m<enemy.length;m++)
+	{
+	if(sx > enemy[m].x)
+	{
+		enemy[m].x += enemy[m].velx;
+	}
+	if(sx < enemy[m].x)
+	{
+		enemy[m].x -= enemy[m].velx;
+	}
+	if(sy > enemy[m].y)
+	{
+		enemy[m].y += 1;
+	}
+	if(sy < enemy[m].y)
+	{
+		enemy[m].y -= 1;
+	}
+	if(enemy[m].y > 670)
+	{
+		enemyx = Math.floor(Math.random()*450)*1;
+		enemyy = Math.floor(Math.random()*70)*1;
+	}
+	if(Math.abs(enemy[m].x - xCoord) <= 50 && Math.abs(enemy[m].y - yCoord) <= 50)
+	{
+		xCoord = sx + 24;
+		yCoord = sy + 20;
+		clearInterval(timerbullet);
+		shoot = 0;
+		enemy[m].enemyhp -= 1;
+	}
+	if(Math.abs(enemy[m].x - sx) <= 50 && Math.abs(enemy[m].y - sy) <= 50)
+	{
+		playerhp -= 1;
+	}
+	if(enemy[m].enemyhp <= 0)
+	{
+		enemy.splice(m, 1);
+	}
+	if(playerhp == 0)
+	{
+		alert("Game Over!");
+	}
+	drawInvader();
+}
+}
+	function Count()
+	{
+	seconds++;
+	document.getElementById("pseconds").innerHTML = seconds;
+	}
+	function MoveBullet()
+	{
+	if(yCoord < 0){
+	xCoord = sx + 44;
+	yCoord = sy;
+	clearInterval(timerbullet);
+	shoot = 0;
+	}
+	if(yCoord > document.getElementById("myCanvas").height){
+	xCoord = sx + 44;
+	yCoord = sy;
+	clearInterval(timerbullet);
+	shoot = 0;
+	}
+	if(xCoord < 0){
+	xCoord = sx + 44;
+	yCoord = sy;
+	clearInterval(timerbullet);
+	shoot = 0;
+	}
+	if(xCoord > document.getElementById("myCanvas").width){
+	xCoord = sx + 44;
+	yCoord = sy;
+	clearInterval(timerbullet);
+	shoot = 0;
+	}
+	if(changeimg == 0){
+	xCoord = xCoord - shootbullet;
+	}
+	if(changeimg == 1){
+	xCoord = xCoord + shootbullet;
+	}
+	if(changeimg == 2){
+	yCoord = yCoord + shootbullet;
+	}
+	if(changeimg == 3){
+	yCoord = yCoord - shootbullet;
+	}
+}
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("Move()",50);
+			timerseconds = setInterval("Count()",600);
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);
+			clearInterval(timerseconds);
+		}
+	}
+	function bulletTimer()
+	{
+		if(onOffBullet == 0)
+		{
+			onOffBullet = 1 * 1;
+			timerbullet = setInterval("MoveBullet()",50);
+		}
+		else if(onOffBullet == 1)
+		{
+			onOffBullet = 0 * 1;
+			clearInterval(timerbullet);
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+<center>
+<h1>Space Invaders</h1>
+<hr width="90%" size="7" color="Black">
+</br>
+<canvas id="myCanvas" width="800" height="700"
+		style="border:1px solid rgb(195,195,195);">
+		Your browser does not support the canvas element.
+</canvas>
+<img id="spaceship" src="spaceship.png">
+<img id="spaceshipright" src="spaceshipright.png">
+<img id="spaceshipleft" src="spaceshipleft.png">
+<img id="spaceshipdown" src="spaceshipdown.png">
+<img id="alien" src="alien.png">
+<img id="redalien" src="alien2.png">
+<img id="espaceship" src="espaceship.png">
+</br>
+<p><span id="pseconds">00</span</p>
+</br>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="auto" value="Play"
+				onclick="theTimer()"/>
+</body>
+</html>

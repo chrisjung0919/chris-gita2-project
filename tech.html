@@ -1,0 +1,116 @@
+<html>
+<head>
+<title>Apple Car</title>
+<style type="text/css">
+#header{background-color:#8080ff;}
+#paragraph{background-color:#AFF8FF;height:1400px;width:600px;float:left;padding:20px 0 0 20px;}
+#images{float:right;background-color:#CAB6FF;height:950px;width:890px;}
+#info{background-color:#5CF2B0;height:150px;width:220px;}
+#imglink{float:right;background-color:#5CF2B0;height:300px;width:400px;padding:2px 0 0 2px;}
+#link{font-family:arial;font-size:20px;color:orange; font-weight:bold;font-style:italic;}
+#imglink1{font-family:arial;font-size:20px;color:blue; font-weight:bold;font-style:italic;}
+#imglink2{font-family:arial;font-size:20px;color:brown; font-weight:bold;font-style:italic;}
+#imglink3{font-family:arial;font-size:20px;color:yellow; font-weight:bold;font-style:italic;}
+#imglink4{font-family:arial;font-size:20px;color:red; font-weight:bold;font-style:italic;}
+#imglink5{font-family:arial;font-size:20px;color:purple; font-weight:bold;font-style:italic;}
+#imglink6{font-family:arial;font-size:20px;color:white; font-weight:bold;font-style:italic;}
+</style>
+<link href="tech.css" rel="stylesheet" media="all">
+<script language="javascript">
+function changeLink(linkVar)
+{
+	document.getElementById(linkVar).style.color="red";
+	document.getElementById(linkVar).style.textDecoration="none";
+
+}
+function changeBack(linkVar)
+{
+	document.getElementById(linkVar).style.color="purple";
+	document.getElementById(linkVar).style.textDecoration="underline";
+	
+}
+function changePic(acar)
+{
+	document.getElementById(acar).src = "applecar2.jpg";
+}
+function changePicBack(acar)
+{
+	document.getElementById(acar).src = "applecar.jpg";
+}
+function changePic2(acar2)
+{
+	document.getElementById(acar2).src = "appleca2.jpg";
+}
+function changePicBack2(acar2)
+{
+	document.getElementById(acar2).src = "appleca.jpg";
+}
+function changePic3(acar3)
+{
+	document.getElementById(acar3).src = "applec2.jpg";
+}
+function changePicBack3(acar3)
+{
+	document.getElementById(acar3).src = "applec.jpg";
+}
+</script>
+</head>
+<body>
+<div id="header">
+<h1 class="title">Apple Car</h1>
+</div>
+<center>
+<img class="applecarimg" id="acar" src="applecar.jpg" onmouseover="changePic(this.id)"
+									onmouseout="changePicBack(this.id)">
+</center>
+</br>
+<div id="info">
+<p class="plink">For more information:</p>
+<nav><a id="link" href="https://appleinsider.com/inside/apple-car#driving" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</a></nav>
+</div>
+</br>
+<div id="paragraph">
+<p class="p1">Initially, "Project Titan" was rumored to involve an electric 
+vehicle called we are 
+calling "Apple Car," delivered 
+by 2019 or 2020. Towards the end of 2015 however, the program 
+experienced "an incredible failure of leadership," according to one source, in 
+which managers fought over where Titan was going. This led to the 
+departure of project leader Steve Zadesky. The original vision of an "Apple Car" that would detect its driver via fingerprint and then drive them anywhere had 
+transit	ioned from a partially autonomous car to something more ambitious. However, another factor 
+that may have pulled Apple away from its own car is the automotive supply chain. While Apple is used to being able to exert heavy control over suppliers for devices like the iPhone, the company may 
+have discovered that auto parts makers would be less eager to commit to an "Apple Car," given the deeper expenses involved, and Apple likely producing vehicles in small initial numbers.
+Apple's use of sleek lines in other products could be reused in the "Apple Car," as well as 
+wide-swinging doors that eliminate the need for a permanent center door pillar, making openings even larger. Proposals 
+include the use of AR and VR technology, in-screen displays, privacy lighting, and unique sunroof designs, among other suggestions.</p>
+<p class="p2">Reports in late 2020 indicate Apple may be ahead of schedule and a product may be ready by 2024. It could feature a radical new battery design that would reduce cost and extend 
+driving range.Ming-Chi Kuo has stated that a release is unlikely before 2025, that most rumors about a launch prior to that have been "overhyped." Given that there have been no manufacturers 
+selected, TF Securities estimates that if "everything goes well" a launch between 2025 and 2027 is likely.
+Hyundai has confirmed that Apple has approached it and other companies about producing the Apple Car. Such advanced talks are normal and indicate Apple is ready to begin production in the coming 
+months. The same report indicates that despite starting production, the car will not be ready to launch for years yet — 2024 at the earliest, though 2027 seems to be more realistic. Apple is expected 
+to build a "beta" version of the "Apple Car" by 2022 then order 100,000 for production in 2024.</p>
+<p class="p3">Unlike the designs, which are brought up in patent filings and rumors, it is actively known Apple has developed and tested a self-driving system, one that has appeared in public 
+filings with government regulators, and has even been spotted on public roads. Then-director of product integrity at Apple Steve Kenner said the Federal Automated Vehicles Policy paved a safe and flexible 
+path toward the development of automated vehicles, but suggested proposed regulations could be more open for companies new to the industry.One reason for using existing vehicles for these tests is that 
+driving an "Apple Car" that Apple has created would spoil the surprise for its launch. Publicly showing off a new vehicle design would also directly hand ideas to other car manufacturers, potentially 
+allowing them to innovate on Apple's car before it is unveiled.</p>
+</div>
+<div id="images">
+<img class="applecarimg2" id="acar2" src="appleca.jpg" onmouseover="changePic2(this.id)"
+									onmouseout="changePicBack2(this.id)">
+</br>
+<img class="applecarimg3" id="acar3" src="applec.jpg" onmouseover="changePic3(this.id)"
+									onmouseout="changePicBack3(this.id)">
+</br>
+</div>
+<div id="imglink">
+<p class="word">Images</p>
+<nav><a id="imglink2" href="https://www.google.com/search?q=apple+car&tbm=isch&ved=2ahUKEwjT4N7B1sjyAhVb-KwKHSapC4YQ2-cCegQIABAA&oq=apple+car&gs_lcp=CgNpbWcQA1AAWABgrwFoAHAAeACAAQCIAQCSAQCYAQCqAQtnd3Mtd2l6LWltZw&sclient=img&ei=_WEkYZPuI9vwswWm0q6wCA&rlz=1C1CHBD_koKR845KR845#imgrc=JKVI7UCW5_7KIM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+<nav><a id="imglink3" href="https://www.google.com/search?q=apple+car&tbm=isch&ved=2ahUKEwjT4N7B1sjyAhVb-KwKHSapC4YQ2-cCegQIABAA&oq=apple+car&gs_lcp=CgNpbWcQA1AAWABgrwFoAHAAeACAAQCIAQCSAQCYAQCqAQtnd3Mtd2l6LWltZw&sclient=img&ei=_WEkYZPuI9vwswWm0q6wCA&rlz=1C1CHBD_koKR845KR845#imgrc=nL_ITviW5wpKbM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+<nav><a id="imglink1" href="https://www.google.com/search?q=apple+car&tbm=isch&ved=2ahUKEwjT4N7B1sjyAhVb-KwKHSapC4YQ2-cCegQIABAA&oq=apple+car&gs_lcp=CgNpbWcQA1AAWABgrwFoAHAAeACAAQCIAQCSAQCYAQCqAQtnd3Mtd2l6LWltZw&sclient=img&ei=_WEkYZPuI9vwswWm0q6wCA&rlz=1C1CHBD_koKR845KR845#imgrc=XMxvgnoa_lm2DM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+<nav><a id="imglink4" href="https://www.google.com/search?q=apple+car&rlz=1C1CHBD_koKR845KR845&sxsrf=AOaemvJc0ih-NfXLKIfIjJPfWGrt4Fzmpw:1629988742384&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiyx-if9c7yAhUqKzQIHcyRDUcQ_AUoAXoECAEQAw&cshid=1629988809496849&biw=1536&bih=750&dpr=1.25#imgrc=3T4P7AZpgDFViM&imgdii=5wRAMakfmluVcM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+<nav><a id="imglink5" href="https://www.google.com/search?q=apple+car&rlz=1C1CHBD_koKR845KR845&sxsrf=AOaemvJc0ih-NfXLKIfIjJPfWGrt4Fzmpw:1629988742384&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiyx-if9c7yAhUqKzQIHcyRDUcQ_AUoAXoECAEQAw&cshid=1629988809496849&biw=1536&bih=750&dpr=1.25#imgrc=9XeExJ0ZTjijkM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+<nav><a id="imglink6" href="https://www.google.com/search?q=apple+car&rlz=1C1CHBD_koKR845KR845&sxsrf=AOaemvJc0ih-NfXLKIfIjJPfWGrt4Fzmpw:1629988742384&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiyx-if9c7yAhUqKzQIHcyRDUcQ_AUoAXoECAEQAw&cshid=1629988809496849&biw=1536&bih=750&dpr=1.25#imgrc=nL_ITviW5wpKbM&imgdii=jJixWgiM8HzEMM" onmouseover="changeLink(this.id)" onmouseout="changeBack(this.id)">Click Here</nav>
+</div>
+</body>
+</html>

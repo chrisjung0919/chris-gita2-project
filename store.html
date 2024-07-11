@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Merchandise store</title>
+<style type="text/css">
+.graphic{position:absolute;top:300px;left:1100px;}
+.input{position:absolute;top:200px;left:300px;}
+.output{position:absolute;top:300px;left:700px;}
+.output2{position:absolute;top:300px;left:900px;}
+.cost{position:absolute;top:270px;left:740px;background-color:white;}
+.managerstats{position:absolute;top:270px;left:930px;background-color:white;}
+.images{position:absolute;top:650px;left:670px;}
+</style>
+<script language="javascript">
+
+		var NumberofSales = 0 * 1;
+		var TotalSales = 0 * 1;
+		var Brother = 0 * 1;
+		var Sister = 0 * 1;
+		var Both = 0 * 1;
+		var Totalcost = 0 * 1;
+	
+	function calculate(nameString,Shirt,
+				Pad,Sticker,Banner,radiogroup, checkbox)
+	{
+			var Discount = 0 * 1;
+			var Materialcost = 0 * 1;
+			var Shirtcost = Shirt * 15;
+			var Padcost = Pad * 5;
+			var Stickercost = Sticker * 1.5;
+			var Bannercost = Banner * 12;
+			var AverageSales = 0 * 1;
+			
+			if(radiogroup[0].checked){
+				Discount = radiogroup[0].value;
+			}
+			else if(radiogroup[1].checked)
+			{
+				Discount = radiogroup[1].value;
+			}
+			else if(radiogroup[2].checked)
+			{
+				Discount = radiogroup[2].value;
+			}
+			if(checkbox[0].checked){
+				Brother++;
+			}
+			if(checkbox[1].checked){
+				Sister++;
+			}
+			if(checkbox[0].checked && checkbox[1].checked){
+				Both++;
+			}
+			
+			Materialcost = Shirtcost + Padcost + Stickercost + Bannercost;
+			Totalcost = Materialcost - (Materialcost * Discount);
+			NumberofSales++;
+			TotalSales = TotalSales + Totalcost;
+			AverageSales = TotalSales/NumberofSales;
+			
+			//output answer to text area
+			document.OutputForm.txaoutputField.value= "Hi " + nameString +"\n"+
+			"You bought " + Shirt + " polo shirts for $" + Shirtcost + ", " + "\n"
+						  + Pad + " mouse pads for $" + Padcost + ", " + "\n"
+						  + Sticker + " GITA stickers for $" + Shirtcost + ", and " + "\n"
+						  + Banner + " GITA banners for $" + Bannercost + ", " + "\n"
+						  + "with a discount of " + Discount * 100 + "%" + ", " + "\n"
+						  + "Totalcost is $" + Totalcost + "\n" + "Brother: " + Brother + "\n" 
+						  + "Sister: " + Sister;
+			document.OutputForm2.txaoutputField2.value= "Manager Stats:" + "\n"
+				+ "Total Sales: $" + TotalSales + "\n"
+				+ "Number of Sales: " + NumberofSales + "\n"
+				+ "Average Sales: $" + AverageSales + "\n"
+				+ "Number of People With Both a Sister and Brother: " + Both;
+		
+	}
+</script>
+<link href="store.css" rel="stylesheet" media="all">
+</head>
+<body>
+<center>
+<h1>GITA Gear Shop</h1>
+<hr width="90%" size="7" color="Black">
+</center>
+<div class="graphic">
+<img src="GITA.png" width="600">
+</div>
+<div class="cost">
+Total Cost
+</div>
+<div class="managerstats">
+Manager Stats
+</div>
+<div class="input">
+<form name="nameform">
+<p style="font-size: 20px">Name:</p><input style="font-size: 18px" type="text" name="txtName" value=""/>
+</br>
+<p style="font-size: 20px">Polo Shirt:</p><input style="font-size: 18px" type="text" name="txtShirt" value=""/>
+</br>
+<p style="font-size: 20px">Mouse Pad:</p><input style="font-size: 18px" type="text" name="txtPad" value=""/>
+</br>
+<p style="font-size: 20px">GITA Sticker:</p><input style="font-size: 18px" type="text" name="txtSticker" value=""/>
+</br>
+<p style="font-size: 20px">GITA Banner:</p><input style="font-size: 18px" type="text" name="txtBanner" value=""/>
+</br>
+<p style="font-size: 20px">Grade Discounts</p>
+<input type="radio" name="discount" value="0"/>No discount
+</br>
+<input type="radio" name="discount" value="0.10"/>Sophomore/Junior discount(10%)
+</br>
+<input type="radio" name="discount" value="0.15"/>Senior discount(15%)
+</br>
+<p style="font-size: 20px">Survey</p>
+<input type="checkbox" name="survey" value="Brother"/>Have a brother in GITA
+</br>
+<input type="checkbox" name="survey" value="Sister"/>Have a sister in GITA
+</br>
+<input style="font-size: 18px; width: 300px; height: 100px;" type="button" name="btnPress" value="Calculate"
+		onclick="calculate(nameform.txtName.value,nameform.txtShirt.value,
+				nameform.txtPad.value,nameform.txtSticker.value,nameform.txtBanner.value,
+				nameform.discount,nameform.survey)"/>
+
+</form>
+</div>
+<div class="images">
+<img src="shirt.jpg" width="300">
+<img src="mousepad.jpg" width="300">
+<img src="sticker.jpg" width="300">
+<img src="banner.gif" width="300">
+</div>
+<div class="output">
+<form name="OutputForm">
+<textarea style="font-size: 14px" name="txaoutputField" id="outputField" rows="20" cols="20"/>
+</textarea>
+</form>
+</div>
+<div class="output2">
+<form name="OutputForm2">
+<textarea style="font-size: 14px" name="txaoutputField2" id="outputField2" rows="20" cols="20"/>
+</textarea>
+</form>
+</div>
+</body>
+</html>

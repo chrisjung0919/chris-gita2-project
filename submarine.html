@@ -1,0 +1,243 @@
+<html>
+<head>
+<title>Submarine</title>
+<style type="text/css">
+h1{
+font-family:Comic Sans MS;
+font-size: 55px;
+color: white;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: #000000;
+}
+#submarine{
+display: none;
+}
+#submarine2{
+display: none;
+}
+#fish2{
+display: none;
+}
+#fishchange{
+display: none;
+}
+#shark1{
+display: none;
+}
+#sharkchange{
+display: none;
+}
+</style>
+<script language="javascript">
+	var submarine = new Image();
+	var fish = new Array();
+	var shark1 = new Image();
+	var x = 380*1;
+	var y = 380*1;
+	var onOff = 0 * 1;
+	var changeimg = 0 * 1;
+	var changeimgs = 0 * 1;
+	var moveUp = 1 * 1;
+	var movexs = 10 * 1;
+	var moveys = 10 * 1;
+	var sx = 400;
+	var sy = 300;
+
+function fishInfo(x,y,velx,vely,color,size)
+{
+	this.x = x;
+	this.y = y;
+	this.velx = velx;
+	this.color = color;
+	this.size = 20;
+}
+for(var i=0; i<15;i++)
+{
+	var xcoord = Math.floor(Math.random()*490)*1;
+	var ycoord = Math.floor(Math.random()*490)*1;
+	var xspeed = 5;
+	var yspeed = 10;
+	fish[i] = new fishInfo(xcoord,ycoord,xspeed,yspeed);
+	}
+function init()
+{
+	drawsubmarine();
+}
+function drawsubmarine()
+{
+	var c = document.getElementById("myCanvas");
+	var ctx = c.getContext("2d");
+	ctx.fillStyle="#21F0FF";
+	ctx.fillRect(0,0,800,700);
+	
+	for(var j=0;j<fish.length;j++)
+	{
+		fish[j].src = document.getElementById("fish2").src;
+		ctx.drawImage(fish2,fish[j].x,fish[j].y,50,50);
+		
+		if(fish[j].velx < 1)
+		{
+		fish[j].src = document.getElementById("fishchange").src;
+		ctx.drawImage(fishchange,fish[j].x,fish[j].y,50,50);
+		}
+		if(fish[j].velx > 1)
+		{
+		fish[j].src = document.getElementById("fish2").src;
+		ctx.drawImage(fish2,fish[j].x,fish[j].y,50,50);
+		}
+	}
+	
+	submarine.src = "sub.png";
+	ctx.drawImage(submarine,x,y,90,50);
+	
+	shark1.src = document.getElementById("shark1").src;
+	ctx.drawImage(shark1,sx,sy,80,50);
+	
+	if(changeimg == 1)
+	{
+	submarine.src = "sub2.png";
+	ctx.drawImage(submarine,x,y,90,50);
+	}
+	if(changeimg == 0)
+	{
+	submarine.src = "sub.png";
+	ctx.drawImage(submarine,x,y,90,50);
+	}
+	if(changeimgs == 1)
+	{
+	shark1.src = document.getElementById("sharkchange").src;
+	ctx.drawImage(shark1,sx,sy,80,50);
+	}
+	if(changeimgs == 0)
+	{
+	shark1.src = document.getElementById("shark1").src;
+	ctx.drawImage(shark1,sx,sy,80,50);
+	}
+}
+function init()
+{
+	window.addEventListener('keydown',doKeyDown,true);
+	drawsubmarine();
+}
+function doKeyDown(evt)
+{
+	switch(evt.which)
+	{
+		case 37:
+		x -= 10;
+		changeimg = 1;
+		break;
+		
+		case 39:
+		x += 10;
+		changeimg = 0;
+		break;
+		
+		case 40:
+		y += 10;
+		break;
+		
+		case 32:
+		fish.push(new fishInfo(xcoord,ycoord,5,50));
+		xcoord = Math.floor(Math.random()*490)*1;
+		ycoord = Math.floor(Math.random()*490)*1;
+		break;
+	}
+	drawsubmarine();
+}
+function Move()
+{
+	y = y - moveUp;
+	drawsubmarine();
+	if(y < 0)
+	{
+	clearInterval(timer);
+	}
+}
+function Move2()
+{
+	var whichway = Math.floor(Math.random() * 4);
+	
+	for(var m=0;m<fish.length;m++)
+	{
+		if(fish[m].x > document.getElementById("myCanvas").width)
+		{
+		fish[m].velx *= -1;
+		}
+		else if(fish[m].x < 0)
+		{
+		fish[m].velx *= -1;
+		}
+		fish[m].x += fish[m].velx;
+		
+		if(Math.abs(fish[m].x - x) <= 50 && Math.abs(fish[m].y - y) <= 50)
+		{
+			fish[m].y += 10;
+		}
+		if(Math.abs(fish[m].x - sx) <= 50 && Math.abs(fish[m].y - sy) <= 50)
+		{
+			//fish[m].y = -100;
+			fish.splice(m, 1);
+		}
+	}
+	if(whichway == 0)
+	{
+	sx += movexs;
+	changeimgs = 0;
+	}
+	if(whichway == 1)
+	{
+	sx -= movexs;
+	changeimgs = 1;
+	}
+	if(whichway == 2)
+	{
+	sy += moveys;
+	}
+	if(whichway == 3)
+	{
+	sy -= moveys;
+	}
+	drawsubmarine();
+}
+function theTimer()
+{
+	if(onOff == 0)
+	{
+		onOff = 1 * 1;
+		timer = setInterval("Move()",30);
+		timer2 = setInterval("Move2()",30);
+	}
+	else if(onOff == 1)
+	{
+		onOff = 0 * 1;
+		clearInterval(timer);
+		clearInterval(timer2);
+	}
+}
+</script>
+</head>
+<body onload="init()">
+<center>
+<h1>Submarine</h1>
+<hr width="80%" size="7" color="white">
+</br>
+<canvas id="myCanvas" width="800" height="700"
+style="border:1px solid #000000;">
+Your browser does not support the canvas element.
+</canvas>
+<img id="submarine" src="sub.png">
+<img id="submarine2" src="sub2.png">
+<img id="fish2" src="fish2.png">
+<img id="fishchange" src="fish1.jpg">
+<img id="shark1" src="shark1.png">
+<img id="sharkchange" src="shark2.png">
+</br>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="auto" value="Play"
+				onclick="theTimer()"/>
+</body>
+</html>
