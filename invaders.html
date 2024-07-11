@@ -1,0 +1,382 @@
+<html>
+<head>
+<title>Mini Space Invaders</title>
+<style type="text/css">
+h1{
+font-family:Comic Sans MS;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: #75C0FE;
+}
+#alien{
+display: none;
+}
+#spaceship{
+display: none;
+}
+#redalien{
+display: none;
+}
+#espaceship{
+display: none;
+}
+</style>
+<script language="javascript">
+	var shoot = 0 * 1;
+	var shoot2 = 0 * 1;
+	var hit = 0 * 1;
+	var hit2 = 0 * 1;
+	var hit3 = 0 * 1;
+	var onOff = 0 * 1;
+	var onOffBullet = 0 * 1;
+	var x = 380*1;
+	var y = 630*1;
+	var x2 = 380*1;
+	var y2 = 200*1;
+	var x3 = 580*1;
+	var y3 = 200*1;
+	var x4 = 180*1;
+	var y4 = 200*1;
+	var enemyx = Math.floor(Math.random()*450)*1;
+	var enemyy = Math.floor(Math.random()*70)*1;
+	var emovex = 10 * 1;
+	var emovey = 10 * 1;
+	var dx = 10 * 1;
+	var moveX = 5 * 1;
+	var moveY = 1 * 1;
+	var hp = 4 * 1;
+	var hp2 = 4 * 1;
+	var hp3 = 4 * 1;
+	var playerhp = 5 * 1;
+	var count = 0 * 1;
+	var xCoord = x + 24;
+	var yCoord = y;
+	var xCoord2 = enemyx + 50;
+	var yCoord2 = enemyy + 65;
+	var shootbullet = 20 * 1;
+	var spaceship = new Image();
+	var alien = new Image();
+	var alien2 = new Image();	
+	var alien3 = new Image();
+	var espaceship = new Image();
+	var timercount = 0 * 1;
+	function drawInvader()
+	{
+		//paint to the canvas
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.fillStyle="#000000";
+		ctx.fillRect(0,0,800,700);
+
+		spaceship.src = "spaceship.png";
+		ctx.drawImage(spaceship,x,y,50,50);
+		
+		if(hit == 0)
+		{
+		alien.src = document.getElementById("alien").src;
+		ctx.drawImage(alien,x2,y2,50,50);
+		}
+		if(hit == 1)
+		{
+		alien.src = document.getElementById("redalien").src;
+		ctx.drawImage(alien,x2,y2,50,50);
+		}
+		if(hit2 == 0)
+		{
+		alien2.src = document.getElementById("alien").src;
+		ctx.drawImage(alien2,x3,y3,50,50);
+		}
+		if(hit2 == 1)
+		{
+		alien2.src = document.getElementById("redalien").src;
+		ctx.drawImage(alien2,x3,y3,50,50);
+		}
+		if(hit3 == 0)
+		{
+		alien3.src = document.getElementById("alien").src;
+		ctx.drawImage(alien3,x4,y4,50,50);
+		}
+		if(hit3 == 1)
+		{
+		alien3.src = document.getElementById("redalien").src;
+		ctx.drawImage(alien3,x4,y4,50,50);
+		}
+		espaceship.src = document.getElementById("espaceship").src;
+		ctx.drawImage(espaceship,enemyx,enemyy,100,70);
+		
+		ctx.fillStyle="#36FF00";
+		ctx.beginPath();
+		ctx.arc(xCoord,yCoord,7,0,Math.PI*2,true);
+		ctx.closePath();
+		ctx.fill();
+		
+		ctx.fillStyle="#FF0000";
+		ctx.beginPath();
+		ctx.arc(xCoord2,yCoord2,7,0,Math.PI*2,true);
+		ctx.closePath();
+		ctx.fill();
+	}
+	function init(){
+	window.addEventListener('keydown',doKeyDown,true);
+	drawInvader();
+	}
+	function doKeyDown(evt)
+	{
+		switch(evt.which)
+		{
+			case 37:
+			x -= dx;
+			if(shoot == 0){
+			xCoord = x + 24;
+			}
+			break;
+			
+			case 39:
+			x += dx;
+			if(shoot == 0){
+			xCoord = x + 24;
+			}
+			break;
+			
+			case 32:
+			bulletTimer();
+			shoot = 1;
+			break;
+		}
+		drawInvader();
+	}
+	function Move()
+	{
+	x2 += moveX;
+	x3 += moveX;
+	x4 += moveX;
+	
+	shoot2 = 1;
+	
+	if(x3 > 750)
+	{
+		moveX *= -1;
+		count = count + 1;
+	}
+	if(x4 < 0)
+	{
+		moveX *= -1;
+		count = count + 1;
+	}
+	if(y2 > 670 || y3 > 670 || y4 > 670)
+	{
+		alert("Game Over!");
+		x2 = 380*1;
+		y2 = 200*1;
+		x3 = 580*1;
+		y3 = 200*1;
+		x4 = 180*1;
+		y4 = 200*1;
+	}
+	
+	if(x > enemyx)
+	{
+		enemyx += 10;
+	}
+	if(x < enemyx)
+	{
+		enemyx -= 10;
+	}
+	if(y > enemyy)
+	{
+		enemyy += 10;
+	}
+	if(y < enemyy)
+	{
+		enemyy += 10;
+	}
+
+	if(enemyy > 670)
+	{
+		enemyx = Math.floor(Math.random()*450)*1;
+		enemyy = Math.floor(Math.random()*70)*1;
+	}
+	
+	if(count == 3)
+	{
+		y2 += moveY;
+		y3 += moveY;
+		y4 += moveY;
+	}
+	if(count == 6)
+	{
+		y2 += moveY;
+		y3 += moveY;
+		y4 += moveY;
+	}
+	if(count == 9)
+	{
+		y2 += 2;
+		y3 += 2;
+		y4 += 2;
+	}
+	if(count == 12)
+	{
+		y2 += moveY;
+		y3 += moveY;
+		y4 += moveY;
+	}
+	if(count == 15)
+	{
+		y2 += 2;
+		y3 += 2;
+		y4 += 2;
+	}
+	if(count == 18)
+	{
+		y2 += moveY;
+		y3 += moveY;
+		y4 += moveY;
+	}
+	if(count == 18)
+	{
+		y2 += 2;
+		y3 += 2;
+		y4 += 2;
+	}
+	if(count == 21)
+	{
+		y2 += 3;
+		y3 += 3;
+		y4 += 3;
+	}
+	
+	if(Math.abs(xCoord - x2) <= 30 && Math.abs(yCoord - y2) <= 10)
+	{
+		hp = hp - 1;
+		hit = 1;
+		xCoord = x + 24;
+		yCoord = y;
+		clearInterval(timerbullet);
+		shoot = 0;
+	}
+	else{
+	hit = 0;
+	}
+	if(Math.abs(xCoord - x3) <= 30 && Math.abs(yCoord - y3) <= 10)
+	{
+		hp2 = hp2 - 1;
+		hit2 = 1;
+		xCoord = x + 24;
+		yCoord = y;
+		clearInterval(timerbullet);
+		shoot = 0;
+	}
+	else{
+	hit2 = 0;
+	}
+	if(Math.abs(xCoord - x4) <= 30 && Math.abs(yCoord - y4) <= 10)
+	{
+		hp3 = hp3 - 1;
+		hit3 = 1;
+		xCoord = x + 24;
+		yCoord = y;
+		clearInterval(timerbullet);
+		shoot = 0;
+	}
+	else{
+	hit3 = 0;
+	}
+	if(Math.abs(xCoord2 - xCoord) <= 30 && Math.abs(yCoord2 - yCoord) <= 10)
+	{
+		playerhp = playerhp - 1;
+	}
+	if(hp == 0)
+	{
+		y2 = -100;
+	}
+	if(hp2 == 0)
+	{
+		y3 = -100;
+	}
+	if(hp3 == 0)
+	{
+		y4 = -100;
+	}
+	if(playerhp == 0)
+	{
+		alert("Game Over!");
+	}
+
+	drawInvader();
+}
+	function MoveBullet()
+	{
+	yCoord = yCoord - shootbullet;
+	if(yCoord < 0){
+	xCoord = x + 24;
+	yCoord = y;
+	clearInterval(timerbullet);
+	shoot = 0;
+	}
+}
+	function MoveBullet2()
+	{
+	yCoord2 = yCoord2 + shootbullet;
+	if(yCoord2 > 780){
+	xCoord2 = enemyx + 50;
+	yCoord2 = enemyy + 65;
+	shoot2 = 0;
+	}
+}
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("Move()",50);
+			timer2 = setInterval("MoveBullet2()",50);
+			timercount += 1;
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);	
+			clearInterval(timer2);
+			timercount += 0;
+		}
+	}
+	function bulletTimer()
+	{
+		if(onOffBullet == 0)
+		{
+			onOffBullet = 1 * 1;
+			timerbullet = setInterval("MoveBullet()",50);
+		}
+		else if(onOffBullet == 1)
+		{
+			onOffBullet = 0 * 1;
+			clearInterval(timerbullet);
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+<center>
+<h1>Space Invaders</h1>
+<hr width="90%" size="7" color="Black">
+</br>
+<canvas id="myCanvas" width="800" height="700"
+		style="border:1px solid rgb(195,195,195);">
+		Your browser does not support the canvas element.
+</canvas>
+<img id="spaceship" src="spaceship.png">
+<img id="alien" src="alien.png">
+<img id="redalien" src="alien2.png">
+<img id="espaceship" src="espaceship.png">
+</br>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="auto" value="Play"
+				onclick="theTimer()"/>
+
+</body>
+</html>

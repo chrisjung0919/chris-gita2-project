@@ -1,0 +1,180 @@
+
+<html>
+<head>
+<title>Circle Bounce 2</title>
+<style type="text/css">
+h1{
+font-family:Lucida Console;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: yellow;
+}
+</style>
+<script language="javascript">
+	//declare an array for our circles
+	var ball = new Array();
+	
+	var onOff = 0 * 1;
+	
+	var rectx = Math.floor(Math.random()*100)*1;
+	var recty = Math.floor(Math.random()*100)*1;
+	
+	var rectvelx = Math.floor(Math.random()*20)*1;
+	var rectvely = Math.floor(Math.random()*60)*1;
+	
+	var WIDTH = 20;
+	var HEIGHT = 20;
+	//define the object
+	function ballInfo(x,y,velx,vely,color,size)
+	{
+		this.x = x;
+		this.y = y;
+		this.velx = Math.floor(Math.random()*40)*1;
+		this.vely = Math.floor(Math.random()*40)*1;
+		this.color = color;
+		this.size = Math.floor(Math.random()*30)*1;
+	}
+	for(var i=0; i<15;i++)
+	{
+		var xcoord = Math.floor(Math.random()*490)*1;
+		var ycoord = Math.floor(Math.random()*490)*1;
+		var randomcolor = Math.floor(Math.random()*8)*1;
+		if(randomcolor == 1){
+		var myColor = "red";
+		}
+		if(randomcolor == 2){
+		var myColor = "yellow";
+		}
+		if(randomcolor == 3){
+		var myColor = "green";
+		}
+		if(randomcolor == 4){
+		var myColor = "blue";
+		}
+		if(randomcolor == 5){
+		var myColor = "purple";
+		}
+		if(randomcolor == 6){
+		var myColor = "orange";
+		}
+		if(randomcolor == 7){
+		var myColor = "#9AF5FF";
+		}
+		ball[i] = new ballInfo(xcoord,ycoord,10,0,myColor);
+	}
+	function init()
+	{
+		drawCircles();
+	}
+	//draw out circles
+	function drawCircles()
+	{
+		var c= document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		
+		ctx.fillStyle="#000000";
+		ctx.fillRect(0,0,800,500);
+		
+		for(var j=0;j<15;j++)
+		{
+			ctx.fillStyle = ball[j].color;
+			ctx.beginPath();
+			ctx.arc(ball[j].x,ball[j].y,ball[j].size,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fill();
+		}
+			ctx.fillStyle="red";
+			ctx.beginPath();
+			ctx.fillRect(rectx,recty,WIDTH,HEIGHT);
+			ctx.closePath();
+			ctx.fill();
+		
+	}
+	function moveCircle()
+	{
+		for(var m=0;m<15;m++)
+		{
+			if(ball[m].x > document.getElementById("myCanvas").width)
+			{
+				ball[m].velx *= -1;
+			}
+			else if(ball[m].x < 0)
+			{
+				ball[m].velx *= -1;
+			}
+			ball[m].x += ball[m].velx;
+			if(ball[m].y > document.getElementById("myCanvas").height)
+			{
+				ball[m].vely *= -1;
+			}
+			else if(ball[m].y < 0)
+			{
+				ball[m].vely *= -1;
+			}
+			ball[m].y += ball[m].vely;
+			
+			if(Math.abs(ball[m].x - rectx) <= 30 && Math.abs(ball[m].y - recty) <= 30)
+			{
+			var myColor = "#000000";
+			ball[m] = new ballInfo(xcoord,ycoord,10,0,myColor);
+			}
+		}
+		drawCircles();
+	}
+	function moveSquare()
+	{
+			if(rectx > document.getElementById("myCanvas").width)
+			{
+				rectvelx *= -1;
+			}
+			else if(rectx < 0)
+			{
+				rectvelx *= -1;
+			}
+			rectx += rectvelx;
+			if(recty > document.getElementById("myCanvas").height)
+			{
+				rectvely *= -1;
+			}
+			else if(recty < 0)
+			{
+				rectvely *= -1;
+			}
+			recty += rectvely;
+	}
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("moveCircle()",50);
+			timer2 = setInterval("moveSquare()",50);
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);
+			clearInterval(timer2);
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+<center>
+<h1>Circle Bounce 2</h1>
+</br>
+</br>
+<canvas id="myCanvas" width="800" height="500"
+	style="border: 2px solid rgb(195,195,195);">
+	</canvas>
+	</br>
+	</br>
+	<input type="button" value="Move" onclick="theTimer()">
+</center>
+</body>
+</html>

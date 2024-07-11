@@ -1,0 +1,246 @@
+
+
+<html>
+<head>
+<title>Pin Ball</title>
+<style type="text/css">
+h1{
+font-family:Lucida Console;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: #FF7C47;
+}
+.output{position:absolute;top:200px;left:130px;}
+</style>
+<script language="javascript">
+	var canvas= null;
+	var ctx = null;
+	var onOff = 0 * 1;
+	var moveX = 15 * 1;
+	var moveY = 15 * 1;
+	var xCoord = Math.floor(Math.random()*450)*1;
+	var yCoord = Math.floor(Math.random()*70)*1;
+	var x = 100*1;
+	var y = 470*1;
+	var x1 = 450*1;
+	var y1 = 470*1;
+	var x2 = 300*1;
+	var y2 = 200*1;
+	var x3 = 600*1;
+	var y3 = 300*1;
+	var x4 = 50*1;
+	var y4 = 250*1;
+	var x5 = 100*1;
+	var y5 = 360*1;
+	var x6 = 700*1;
+	var y6 = 180*1;
+	var x7 = 400*1;
+	var y7 = 100*1;
+	var dx = 10 * 1;
+	var dx1 = 10 * 1;
+	var lives = 3 * 1;
+	var points = 0 * 1;
+	var WIDTH = 250;
+	var HEIGHT = 20;
+	
+	function init(){
+	window.addEventListener('keydown',doKeyDown,true);
+	drawCircle();
+	}
+	function doKeyDown(evt)
+{
+		switch(evt.which)
+		{
+			case 37:
+			x -= dx;
+			x1 -= dx;
+			break;
+			
+			case 39:
+			x += dx;
+			x1 += dx;
+			break;
+			
+		}
+		drawCircle();
+
+}
+	function drawCircle()
+	{
+		//paint to the canvas
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+			ctx.fillStyle="#000000";
+			ctx.fillRect(0,0,800,500);
+			//paint circle
+			ctx.fillStyle="#00FFE0";
+			ctx.beginPath();
+			ctx.arc(xCoord,yCoord,20,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fill();
+			
+
+			ctx.fillStyle="red";
+			ctx.beginPath();
+			ctx.fillRect(x,y,WIDTH,HEIGHT);
+			ctx.closePath();
+			ctx.fill();
+			
+			ctx.fillStyle="red";
+			ctx.beginPath();
+			ctx.fillRect(x1,y1,WIDTH,HEIGHT);
+			ctx.closePath();
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x2,y2,10,0,Math.PI*2,true);
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x3,y3,10,0,Math.PI*2,true);
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x4,y4,10,0,Math.PI*2,true);
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x5,y5,10,0,Math.PI*2,true);
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x6,y6,10,0,Math.PI*2,true);
+			ctx.fill();
+			
+			ctx.fillStyle="#DADADA";
+			ctx.beginPath();
+			ctx.arc(x7,y7,10,0,Math.PI*2,true);
+			ctx.fill();
+	}
+	function Move()
+	{
+		//change location and repaint
+		yCoord += moveY;
+		xCoord += moveX;
+		
+		if(xCoord > 800)
+		{
+			moveX *= -1;
+		}
+		if(xCoord < 0)
+		{
+			moveX *= -1;
+		}
+		
+		if(yCoord < 0)
+		{
+			moveY *= -1;
+		}
+		
+		if(Math.abs(xCoord - x) <= 280 && Math.abs(xCoord - x) >= 0 && Math.abs(yCoord - y) <= 40)
+		{
+			moveY *= -1;
+		}
+		if(Math.abs(xCoord - x1) <= 250 && Math.abs(xCoord - x1) >= 0 && Math.abs(yCoord - y1) <= 40)
+		{
+			moveY *= -1;
+		}
+
+		if(Math.abs(xCoord - x2) <= 20 && Math.abs(yCoord - y2) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		if(Math.abs(xCoord - x3) <= 20 && Math.abs(yCoord - y3) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		if(Math.abs(xCoord - x4) <= 20 && Math.abs(yCoord - y4) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		if(Math.abs(xCoord - x5) <= 20 && Math.abs(yCoord - y5) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		if(Math.abs(xCoord - x6) <= 20 && Math.abs(yCoord - y6) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		if(Math.abs(xCoord - x7) <= 20 && Math.abs(yCoord - y7) <= 20)
+		{
+		moveY *= -1;
+		points = points + 1;
+		}
+		
+		
+		if(yCoord > 485 && lives > 0){
+			lives = lives - 1;
+			xCoord = Math.floor(Math.random()*450)*1;
+			yCoord = Math.floor(Math.random()*70)*1;
+		}
+		if(lives == 0){
+			xCoord = 800;
+			yCoord = 700;
+			alert("Game Over! Score: " + points);
+		}
+		
+		document.OutputForm.txaoutputField.value= "Points: " + points +"\n"+ "Lives: " + lives;
+		
+		drawCircle();
+	}
+	
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("Move()",50);
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);
+		}
+	}
+</script>
+</head>
+<body onload="init()">
+<center>
+<h1>Pin Ball</h1>
+<hr width="90%" size="10" color="Black">
+</br>
+</br>
+<canvas id="myCanvas" width="800" height="500"
+		style="border:1px solid rgb(195,195,195);">
+		Your browser does not support the canvas element.
+</canvas>
+</br>
+</br>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="Play" value="Move"
+				onclick="Move()"/>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="auto" value="Auto move"
+onclick = "theTimer()"/>
+<div class="output">
+<form name="OutputForm">
+<textarea style="font-size: 20px" name="txaoutputField" id="outputField" rows="3" cols="30"/>
+</textarea>
+</form>
+</div>
+</center>
+</body>
+</html>

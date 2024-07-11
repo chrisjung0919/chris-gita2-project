@@ -1,0 +1,132 @@
+
+
+<html>
+<head>
+<title>Circle Bounce</title>
+<style type="text/css">
+h1{
+font-family:Lucida Console;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+body{
+background-color: #C8ADFF;
+}
+</style>
+<script language="javascript">
+	var onOff = 0 * 1;
+	var moveX = 15 * 1;
+	var moveY = 15 * 1;
+	var moveX2 = 15 * 1;
+	var moveY2 = 15 * 1;
+	var xCoord = Math.floor(Math.random()*450)*1;
+	var yCoord = Math.floor(Math.random()*150)*1;
+	var xCoord2 = Math.floor(Math.random()*450)*1;
+	var yCoord2 = Math.floor(Math.random()*150)*1;
+	function drawCircle()
+	{
+		//paint to the canvas
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+			ctx.fillStyle="#000000";
+			ctx.fillRect(0,0,800,500);
+			//paint circle
+			ctx.fillStyle="#73BDFF";
+			ctx.beginPath();
+			ctx.arc(xCoord,yCoord,40,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fill();
+		var ctx2 = c.getContext("2d");
+			ctx2.fillStyle="#00FF08";
+			ctx2.beginPath();
+			ctx2.arc(xCoord2,yCoord2,20,0,Math.PI*2,true);
+			ctx2.closePath();
+			ctx2.fill();
+	}
+	function Move()
+	{
+		//change location and repaint
+		yCoord += moveY;
+		xCoord += moveX;
+		yCoord2 += moveY2;
+		xCoord2 += moveX2;
+		
+		if(xCoord > 800)
+		{
+			moveX *= -1;
+		}
+		if(xCoord < 0)
+		{
+			moveX *= -1;
+		}
+		if(yCoord > 485)
+		{
+			moveY *= -1;
+		}
+		if(yCoord < 0)
+		{
+			moveY *= -1;
+		}
+		if(xCoord2 > 800)
+		{
+			moveX2 *= -1;
+		}
+		if(xCoord2 < 0)
+		{
+			moveX2 *= -1;
+		}
+		if(yCoord2 > 485)
+		{
+			moveY2 *= -1;
+		}
+		if(yCoord2 < 0)
+		{
+			moveY2 *= -1;
+		}
+		
+		if(Math.abs(xCoord - xCoord2) <= 40 && Math.abs(yCoord - yCoord2) <= 40)
+		{
+		xCoord = xCoord2;
+		yCoord = yCoord2;
+		}
+		
+		drawCircle();
+	}
+	
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("Move()",50);
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);
+		}
+	}
+</script>
+</head>
+<body onload="drawCircle()">
+<center>
+<h1>Circle Bounce</h1>
+<hr width="90%" size="7" color="Black">
+</br>
+</br>
+<canvas id="myCanvas" width="800" height="500"
+		style="border:1px solid rgb(195,195,195);">
+		Your browser does not support the canvas element.
+</canvas>
+</br>
+</br>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="Play" value="Move"
+				onclick="Move()"/>
+<input style="font-size: 18px; width: 250px; height: 50px;" type="button" name="auto" value="Auto move"
+onclick = "theTimer()"/>
+</center>
+</body>
+</html>

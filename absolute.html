@@ -1,0 +1,28 @@
+<html>
+<head>
+<title>Absolute Positioning</title>
+</head>
+<style type="text/css">
+.train{position:absolute;top:50px;left:150;}
+.div2{font-family:arial;font-size:23px;color:red;position:absolute;top:75px;left:230;z-index:10;}
+.div1{font-family:arial;font-size:23px;color:purple;position:absolute;top:75px;left:230;z-index:-1;}
+.alice{position:relative;top:200px;left:350px;}
+</style>
+<body>
+<h1>Absolute Positioning</h1>
+<div class="train">
+<img src="train.jpg" width="300">
+</div>
+<div class="div2">
+Trains are really fun unless
+</div>
+<div class="div1">
+Trains are really fun unless you get run over.
+</div>
+<div class="train">
+<div class="alice">
+<img src="alice.jpg">
+</div>
+</div>
+</body>
+</html>

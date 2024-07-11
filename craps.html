@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>Craps Game</title>
+<style type="text/css">
+.output2{position:absolute;top:620px;left:980px;}
+.output3{position:absolute;top:620px;left:580px;}
+.dicelocation1{position:absolute;top:200px;left:720px;}
+.dicelocation2{position:absolute;top:200px;left:1000px;}
+</style>
+<script language="javascript">
+		var numRolls = 0 * 1;
+		var point = 0 * 1;
+function rollDice()
+{
+        var dice1Num = parseInt((Math.random() * 6) + 1);
+        var dice2Num = parseInt((Math.random() * 6) + 1);
+		var rollSum = 0 * 1;
+		
+		numRolls++;
+		
+		if (dice1Num == 1)
+        {
+            document.getElementById("Dice1").src = "dice1.jpg";
+        }
+		else if (dice1Num == 2)
+        {
+            document.getElementById("Dice1").src = "dice2.jpg";
+        }
+		else if (dice1Num == 3)
+        {
+            document.getElementById("Dice1").src = "dice3.jpg";
+        }
+		else if (dice1Num == 4)
+        {
+            document.getElementById("Dice1").src = "dice4.jpg";
+        }
+		else if (dice1Num == 5)
+        {
+            document.getElementById("Dice1").src = "dice5.jpg";
+        }
+		else if (dice1Num == 6)
+        {
+            document.getElementById("Dice1").src = "dice6.jpg";
+        }
+		if (dice2Num == 1)
+        {
+            document.getElementById("Dice2").src = "dice1.jpg";
+        }
+		else if (dice2Num == 2)
+        {
+            document.getElementById("Dice2").src = "dice2.jpg";
+        }
+		else if (dice2Num == 3)
+        {
+            document.getElementById("Dice2").src = "dice3.jpg";
+        }
+		else if (dice2Num == 4)
+        {
+            document.getElementById("Dice2").src = "dice4.jpg";
+        }
+		else if (dice2Num == 5)
+        {
+            document.getElementById("Dice2").src = "dice5.jpg";
+        }
+		else if (dice2Num == 6)
+        {
+            document.getElementById("Dice2").src = "dice6.jpg";
+        }
+		
+		rollSum = dice1Num + dice2Num;
+		
+		if(numRolls == 1)
+		{
+			if(rollSum == 7)
+			{
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "You Win!";
+			}
+			if(rollSum == 11)
+			{
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "You Win!";
+			}
+			if(rollSum == 2)
+			{
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "You Lost!";
+			}
+			if(rollSum == 3)
+			{
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "You Lost!";
+			}
+			if(rollSum == 12)
+			{
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "You Lost!";
+			}
+			if(rollSum == 4)
+			{
+			point = 4;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+			if(rollSum == 5)
+			{
+			point = 5;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+			if(rollSum == 6)
+			{
+			point = 6;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+			if(rollSum == 8)
+			{
+			point = 8;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+			if(rollSum == 9)
+			{
+			point = 9;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+			if(rollSum == 10)
+			{
+			point = 10;
+			document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point;
+			}
+		}
+		else if(numRolls >= 1)
+		{
+		if(rollSum == point)
+		{
+		document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point + "\n" + "You Win!";
+		}
+		if(rollSum == 7)
+		{
+		document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum + "\n" + "Point: " + point + "\n" + "You Lost!";
+		}
+	}
+}		
+</script>
+<link href="craps.css" rel="stylesheet" media="all">
+</head>
+<body>
+<center>
+<h1>Craps</h1>
+<hr width="90%" size="7" color="Black">
+<input style="font-size: 18px; width: 250px; height: 50px;" 
+type="button" name="btnPress" value="Roll" onclick="rollDice()"/>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="output">
+<form name="OutputForm">
+<textarea style="font-size: 20px" name="txaoutputField" id="outputField" rows="10" cols="50"/>
+</textarea>
+</form>
+</div>
+<div class="crapsimg">
+<img src="crapstable.png" id="image" width="500" height="300">
+</div>
+</center>
+<div class="dicelocation1">
+<img src="dice1.jpg" id="Dice1" width="200">
+</div>
+<div class="dicelocation2">
+<img src="dice1.jpg" id="Dice2" width="200">
+</div>
+</body>
+</html>

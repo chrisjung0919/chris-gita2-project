@@ -1,0 +1,39 @@
+
+
+<html>
+<head>
+<title>RadioButtons</title>
+<script language="javascript">
+	function changeBG(radiogroup)
+	{
+		var theColor;
+		//check which button is selected
+		if(radiogroup[0].checked)
+		{
+			theColor = radiogroup[0].value;
+		}
+		else if(radiogroup[1].checked)
+		{
+			theColor = radiogroup[1].value;
+		}
+		document.bgColor = theColor;
+	}
+
+</script>
+</head>
+<body>
+<center>
+<h1>How to do radio buttons</h1>
+</br>
+</br>
+<form name="testForm">
+	<input type="radio" name="radioBG" value="red"/>Red
+	</br>
+	<input type="radio" name="radioBG" value="blue"/>Blue
+	</br>
+	<input type="button" name="btnPush" value="choose Color"
+		onclick="changeBG(testForm.radioBG)"/>
+</form>
+</center>
+</body>
+</html>

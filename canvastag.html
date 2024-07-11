@@ -1,0 +1,74 @@
+
+
+<html>
+<head>
+<title>Canvas Tag</title>
+<script language="javascript">
+	var onOff = 0 * 1;
+	var moveX = 10 * 1;
+	var xCoord = Math.floor(Math.random()*450)*1;
+	var yCoord = Math.floor(Math.random()*150)*1;
+	function drawCircle()
+	{
+		//paint to the canvas
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+			ctx.fillStyle="#000000";
+			ctx.fillRect(0,0,500,200);
+			//paint circle
+			ctx.fillStyle="#888888";
+			ctx.beginPath();
+			ctx.arc(xCoord,yCoord,15,0,Math.PI*2,true);
+			ctx.closePath();
+			ctx.fill();
+	
+	}
+	function Move()
+	{
+		//change location and repaint
+		xCoord += moveX;
+		if(xCoord > 485)
+		{
+			moveX *= -1;
+		}
+		else if(xCoord < 0)
+		{
+			moveX *= -1;
+		}
+		
+		drawCircle();
+	}
+	
+	function theTimer()
+	{
+		if(onOff == 0)
+		{
+			onOff = 1 * 1;
+			timer = setInterval("Move()",100);
+		}
+		else if(onOff == 1)
+		{
+			onOff = 0 * 1;
+			clearInterval(timer);
+		}
+	}
+</script>
+</head>
+<body onload="drawCircle()">
+<center>
+<h1>How to animate</h1>
+</br>
+</br>
+<canvas id="myCanvas" width="500" height="200"
+		style="border:1px solid rgb(195,195,195);">
+		Your browser does not support the canvas element.
+</canvas>
+</br>
+</br>
+<input type="button" name="Play" value="move"
+				onclick="Move()"/>
+<input type="button" name="auto" value="auto move"
+				onclick = "theTimer()"/>
+</center>
+</body>
+</html>

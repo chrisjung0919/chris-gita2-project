@@ -1,0 +1,220 @@
+<html>
+<head>
+<title>Dice Program</title>
+<style type="text/css">
+.output2{position:absolute;top:620px;left:980px;}
+.output3{position:absolute;top:620px;left:580px;}
+.a1{position:absolute;top:200px;left:120px;display:none;}
+.a2{position:absolute;top:200px;left:120px;display:none;}
+.a3{position:absolute;top:200px;left:120px;display:none;}
+.a4{position:absolute;top:200px;left:120px;display:none;}
+.a5{position:absolute;top:200px;left:120px;display:none;}
+.a6{position:absolute;top:200px;left:120px;display:none;}
+.b1{position:absolute;top:200px;left:120px;display:none;}
+.b2{position:absolute;top:200px;left:120px;display:none;}
+.b3{position:absolute;top:200px;left:120px;display:none;}
+.b4{position:absolute;top:200px;left:120px;display:none;}
+.b5{position:absolute;top:200px;left:120px;display:none;}
+.b6{position:absolute;top:200px;left:120px;display:none;}
+.dicelocation1{position:absolute;top:200px;left:720px;}
+.dicelocation2{position:absolute;top:200px;left:1000px;}
+</style>
+<script language="javascript">
+		var rollNum2 = 0 * 1;
+		var rollNum3 = 0 * 1;
+		var rollNum4 = 0 * 1;
+		var rollNum5 = 0 * 1;
+		var rollNum6 = 0 * 1;
+		var rollNum7 = 0 * 1;
+		var rollNum8 = 0 * 1;
+		var rollNum9 = 0 * 1;
+		var rollNum10 = 0 * 1;
+		var rollNum11 = 0 * 1;
+		var rollNum12 = 0 * 1;
+		var proba2 = 0 * 1;
+		var proba3 = 0 * 1;
+		var proba4 = 0 * 1;
+		var proba5 = 0 * 1;
+		var proba6 = 0 * 1;
+		var proba7 = 0 * 1;
+		var proba8 = 0 * 1;
+		var proba9 = 0 * 1;
+		var proba10 = 0 * 1;
+		var proba11 = 0 * 1;
+		var proba12 = 0 * 1;
+		var numRolls = 0 * 1;
+function rollDice()
+{
+        var dice1Num = parseInt((Math.random() * 6) + 1);
+        var dice2Num = parseInt((Math.random() * 6) + 1);
+		var rollSum = 0 * 1;
+		
+		numRolls++;
+		
+		if (dice1Num == 1)
+        {
+            document.getElementById("Dice1").src = "dice1.jpg";
+        }
+		else if (dice1Num == 2)
+        {
+            document.getElementById("Dice1").src = "dice2.jpg";
+        }
+		else if (dice1Num == 3)
+        {
+            document.getElementById("Dice1").src = "dice3.jpg";
+        }
+		else if (dice1Num == 4)
+        {
+            document.getElementById("Dice1").src = "dice4.jpg";
+        }
+		else if (dice1Num == 5)
+        {
+            document.getElementById("Dice1").src = "dice5.jpg";
+        }
+		else if (dice1Num == 6)
+        {
+            document.getElementById("Dice1").src = "dice6.jpg";
+        }
+		if (dice2Num == 1)
+        {
+            document.getElementById("Dice2").src = "dice1.jpg";
+        }
+		else if (dice2Num == 2)
+        {
+            document.getElementById("Dice2").src = "dice2.jpg";
+        }
+		else if (dice2Num == 3)
+        {
+            document.getElementById("Dice2").src = "dice3.jpg";
+        }
+		else if (dice2Num == 4)
+        {
+            document.getElementById("Dice2").src = "dice4.jpg";
+        }
+		else if (dice2Num == 5)
+        {
+            document.getElementById("Dice2").src = "dice5.jpg";
+        }
+		else if (dice2Num == 6)
+        {
+            document.getElementById("Dice2").src = "dice6.jpg";
+        }
+		
+		rollSum = dice1Num + dice2Num;
+		
+		if(rollSum == 2)
+		{
+		rollNum2++;
+		proba2 = rollNum2 / numRolls * 100;
+		}
+		if(rollSum == 3)
+		{
+		rollNum3++;
+		proba3 = rollNum3 / numRolls * 100;
+		}
+		if(rollSum == 4)
+		{
+		rollNum4++;
+		proba4 = rollNum4 / numRolls * 100;
+		}
+		if(rollSum == 5)
+		{
+		rollNum5++;
+		proba5 = rollNum5 / numRolls * 100;
+		}
+		if(rollSum == 6)
+		{
+		rollNum6++;
+		proba6 = rollNum6 / numRolls * 100;
+		}
+		if(rollSum == 7)
+		{
+		rollNum7++;
+		proba7 = rollNum7 / numRolls * 100;
+		}
+		if(rollSum == 8)
+		{
+		rollNum8++;
+		proba8 = rollNum8 / numRolls * 100;
+		}
+		if(rollSum == 9)
+		{
+		rollNum9++;
+		proba9 = rollNum9 / numRolls * 100;
+		}
+		if(rollSum == 10)
+		{
+		rollNum10++;
+		proba10 = rollNum10 / numRolls * 100;
+		}
+		if(rollSum == 11)
+		{
+		rollNum11++;
+		proba11 = rollNum11 / numRolls * 100;
+		}
+		if(rollSum == 12)
+		{
+		rollNum12++;
+		proba12 = rollNum12 / numRolls * 100;
+		}
+		
+		document.OutputForm.txaoutputField.value= "Roll Sum: " + rollSum;
+		document.OutputForm2.txaoutputField2.value= "Number of Rolls:" + "\n" + "Times rolled 2: " + rollNum2 + 
+		"\n" + "Times rolled 3: " + rollNum3 + "\n" + "Times rolled 4: " + rollNum4 + "\n" + "Times rolled 5: " + rollNum5 + "\n" + "Times rolled 6: " + rollNum6
+		+ "\n" + "Times rolled 7: " + rollNum7 + "\n" + "Times rolled 8: " + rollNum8 + "\n" + "Times rolled 9: " + rollNum9 + "\n" + "Times rolled 10: " + rollNum10
+		+ "\n" + "Times rolled 11: " + rollNum11 + "\n" + "Times rolled 12: " + rollNum12;
+		document.OutputForm3.txaoutputField3.value= "Roll Probability: " + "\n" + "Probability of 2: " + proba2 + 
+		"\n" + "Probability of 3: " + proba3 + "\n" + "Probability of 4: " + proba4 + "\n" + "Probability of 5:  " + proba5 + "\n" + "Probability of 6: " + proba6
+		+ "\n" + "Probability of 7: " + proba7 + "\n" + "Probability of 8: " + proba8 + "\n" + "Probability of 9: " + proba9 + "\n" + "Probability of 10: " + proba10
+		+ "\n" + "Probability of 11: " + proba11 + "\n" + "Probability of 12: " + proba12;
+}		
+</script>
+<link href="dice.css" rel="stylesheet" media="all">
+</head>
+<body>
+<center>
+<h1>Dice</h1>
+<hr width="90%" size="7" color="Black">
+<input style="font-size: 18px; width: 250px; height: 50px;" 
+type="button" name="btnPress" value="Roll" onclick="rollDice()"/>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<div class="output">
+<form name="OutputForm">
+<textarea style="font-size: 14px" name="txaoutputField" id="outputField" rows="10" cols="50"/>
+</textarea>
+</form>
+</div>
+</center>
+<div class="output2">
+<form name="OutputForm2">
+<textarea style="font-size: 14px" name="txaoutputField2" id="outputField2" rows="18" cols="50"/>
+</textarea>
+</form>
+</div>
+<div class="output3">
+<form name="OutputForm3">
+<textarea style="font-size: 14px" name="txaoutputField3" id="outputField3" rows="18" cols="50"/>
+</textarea>
+</form>
+</div>
+<div class="dicelocation1">
+<img src="dice1.jpg" id="Dice1" width="200">
+</div>
+<div class="dicelocation2">
+<img src="dice1.jpg" id="Dice2" width="200">
+</div>
+<center>
+</body>
+</html>

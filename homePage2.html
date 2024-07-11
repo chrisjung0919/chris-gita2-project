@@ -1,0 +1,94 @@
+
+<html>
+<head>
+<title> CSS Layout</title>
+<style type="text/css" media="all">
+	#container{width:800px;text-align:center;}
+	#header{background-color:#FFA500;}
+	
+	#content{background-color:yellow;height:570px;width:600px;
+				float:left; padding: 20px 0 0 20px;
+				font-family:arial;font-size:25px;
+				color:blue;font-weight:bold;}
+				
+	#footer{background-color:#FFA500; clear:both; text-align:center;}
+	
+	#linkOne,#linkTwo,#linkThree{ font-family:arial;
+								  font-size:25px;
+								  color:purple;
+								  font-weight:bold;}
+								  
+	#menu{background-color:#FFA700;height:590px;width:180px; float:left;}
+	
+	p{
+		color:#8080ff;
+		font-size:.75em;
+		line-height:2;}
+	img{
+		float: right;
+		margin:0 0 10px; 10px;}
+	
+
+</style>
+<script language="javascript">
+function changeLink(linkVar)
+{
+	document.getElementById(linkVar).style.color="red";
+	document.getElementById(linkVar).style.textDecoration="none";
+
+}
+function changeBack(linkVar)
+{
+	document.getElementById(linkVar).style.color="purple";
+	document.getElementById(linkVar).style.textDecoration="underline";
+	
+}
+function changePic(thePic)
+{
+	document.getElementById(thePic).src = "alice23a.gif";
+}
+function changePicBack(thePic2)
+{
+	document.getElementById(thePic2).src = "alice.jpg";
+}
+
+</script>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<h1 style="margin-bottom:0;">Our Website</h1>
+</div>
+<div id="menu">
+<a href="#" id="linkOne" onmouseover="changeLink(this.id)"
+						onmouseout="changeBack(this.id)">HTML</a>
+</br>
+<a href="#" id="linkTwo" onmouseover="changeLink(this.id)"
+						onmouseout="changeBack(this.id)">CSS</a>
+</br>
+<a href="#" id="linkThree" onmouseover="changeLink(this.id)"
+						onmouseout="changeBack(this.id)">Javascript</a>
+
+</div>
+
+
+<div id="content">
+Welcome to our site
+</br>
+It's Amazing!
+</br>
+<img src="alice.jpg" id="alicePic" onmouseover="changePic(this.id)"
+									onmouseout="changePicBack(this.id)">
+<p>
+This site is so amazing that Bill Gates called me up and offered me some
+serious cash. He said that I will be his favorite employee if I come to work for
+him. He wants me to help him rule the world.
+</p>
+</div>
+<div id="footer">
+Copyright GlobalITAcademy.us
+</div>
+
+</div>
+</body>
+</html>

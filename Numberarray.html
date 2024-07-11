@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Number Array</title>
+<style type="text/css">
+body{
+background-color: #FF5E33;
+}
+h1{
+font-family:Comic Sans MS;
+font-size: 55px;
+color: black;
+text-align: center;
+letter-spacing: 3px;
+font-style: italic;
+}
+</style>
+<script language="javascript">
+var randomnumbers = new Array();
+function calculate(inputnumber)
+{
+	var largestnumber = 10 * 1;
+	var smallestnumber = 10 * 1;
+	var averagenumber = 0 * 1;
+	var totalnumber = 0 * 1;
+	var oddnumber = 0 * 1;
+	var evennumber = 0 * 1;
+	var findnumber = 0 * 1;
+	for(var i=0;i<100;i++)
+	{
+	randomnumbers[i] = Math.floor(Math.random()*5000)*1;
+	totalnumber += randomnumbers[i];
+	averagenumber = Math.round(totalnumber / 1000);
+	}
+	for(var m=0;m<1000;m++){
+		if(randomnumbers[m] > largestnumber){
+			largestnumber = randomnumbers[m];
+		}
+		if(randomnumbers[m] < smallestnumber){
+			smallestnumber = randomnumbers[m];
+		}
+		if(randomnumbers[m] % 2 == 0){
+			evennumber = evennumber + 1;
+		}
+		else {
+			oddnumber = oddnumber + 1;
+		}
+		if(inputnumber == randomnumbers[m]){
+		findnumber = m;
+		}
+	}
+	
+	document.getElementById("OutputField").innerHTML = randomnumbers + "\n" + "\n" + "The average number is: " + averagenumber +
+				"\n" + "The smallest number is: " + smallestnumber + "\n" + "The largest number is: " + largestnumber + "\n" + "\n" + "Even number count: " + evennumber 
+				+ "\n" + "Odd number count: " + oddnumber + "\n" + "\n" + "The input number is in: " + findnumber;
+}
+</script>
+</head>
+<body>
+<center>
+<h1>Number Array</h1>
+<hr width="90%" size="7" color="Black">
+<form name="OutputForm">
+<textarea name="txaOutputField" id="OutputField" rows="20" cols="53">
+</textarea>
+</form>
+<form name="nameform">
+<p style="font-size: 20px">Input:</p><input style="font-size: 18px" type="text" name="txtInput" value=""/>
+</br>
+</form>
+<input style="font-size: 18px; width: 250px; height: 50px;"  type="button" name="btnPress" value="Sort" onclick="calculate(nameform.txtInput.value)">
+</center>
+</body>
+</html>

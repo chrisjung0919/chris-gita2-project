@@ -1,0 +1,49 @@
+
+
+<html>
+<head>
+<title>Calculations</title>
+<script language="javascript">
+//This program calculates basic interest
+
+	var totalPeople = 0 * 1;
+	
+	function calculate(nameString,rateDecimal,
+				timeInteger,principleDecimal)
+	{
+			//local variable - only wrks when the button is pushed
+			var yourInterestDecimal = 0 * 1;
+			yourInterestDecimal = rateDecimal * timeInteger * principleDecimal;
+			
+			//output answer to text area
+			document.OutputForm.txaoutputField.value= "Hi " + nameString +"\n"+
+						"Your Intersts is " + yourInterestDecimal;
+	}
+</script>
+</head>
+<body>
+<center>
+<h1>How to do calculations</h1>
+</br>
+</br>
+<form name="nameform">
+Enter Your Name:<input type="text" name="txtName" value=""/>
+</br>
+Enter rate on decimal form<input type="text" name="txtRate" value=""/>
+</br>
+Enter number of years<input type="text" name="txtYears" value=""/>
+</br>
+Enter starting amount<input type="text" name="txtPrinciple" value=""/>
+</br>
+<input type="button" name="btnPress" value="Calculate"
+		onclick="calculate(nameform.txtName.value,nameform.txtRate.value,
+				nameform.txtYears.value,nameform.txtPrinciple.value)"/>
+
+</form>
+<form name="OutputForm">
+<textarea name="txaoutputField" id="outputField" rows="20" cols="20"/>
+</textarea>
+</form>
+</center>
+</body>
+</html>
