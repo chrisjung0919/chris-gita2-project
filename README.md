@@ -1,2 +1,1 @@
-# chris-gita2-project
-This is my gita 2 project.
+This repository contains the projects I created during my sophomore year in high school as part of the Global IT Academy (GITA) 2 course. These projects were built using HTML, along with CSS and JavaScript, to develop interactive and visually engaging web applications.
